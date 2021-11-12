@@ -18,7 +18,14 @@ public class UniqueNumbers {
         }
 
         int[] uniqueNumbers = new int[numbers.length];
-        // Find unique numbers in numbers
+        for (int i = 0;i < numbers.length; i++) {
+          for (int j = 0;j < numbers.length; j++) {
+            if (numbers[i] == numbers[j] && numbers[i] != 0 && numbers[j] != 0) {
+              numbers[i] = 0;
+            }
+          }
+        }
+        
 
         String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
         System.out.println("Unique numbers: " + uniqueNumbersAsString);
