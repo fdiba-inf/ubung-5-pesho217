@@ -18,14 +18,23 @@ public class UniqueNumbers {
         }
 
         int[] uniqueNumbers = new int[numbers.length];
-        for (int i = 0;i < numbers.length; i++) {
-          for (int j = 0;j < numbers.length; j++) {
-            if (numbers[i] == numbers[j] && numbers[i] != 0 && numbers[j] != 0) {
-              numbers[i] = 0;
+        // Find unique numbers in numbers
+        int nextUniqueIndex = 0;
+        for(int index = 0; index < numbers.length; index++){
+          boolean found = false;
+
+          for(int i = 0;i < uniqueNumbers.length; i++){
+            if(numbers[index] == uniqueNumbers[i]) {
+              found = true;
+              break;
             }
           }
+          
+          if(!found) {
+            uniqueNumbers[nextUniqueIndex] = numbers[index];
+            nextUniqueIndex++;
+          }
         }
-        
 
         String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
         System.out.println("Unique numbers: " + uniqueNumbersAsString);
